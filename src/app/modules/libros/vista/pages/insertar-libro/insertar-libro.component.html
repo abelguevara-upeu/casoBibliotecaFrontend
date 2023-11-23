@@ -1,0 +1,191 @@
+<div class="container py-5 px-5">
+  <form
+    (ngSubmit)="agregarLibro()"
+    class=" row g-3 needs-validation"
+    novalidate
+  >
+      <div class="col-12">
+        <label
+          for="validationCustom01"
+          class="form-label"
+        > Título de libro:
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          [(ngModel)]="nuevoLibro.titulo"
+          name="titulo"
+          required
+        >
+        <div
+          class="valid-feedback"
+        > Looks good!
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label
+          for="descripcion"
+          class="form-label"
+        > Descripción:
+        </label>
+        <textarea
+          id="descripcion"
+          name="descripcion"
+          [(ngModel)]="nuevoLibro.descripcion"
+          class="form-control"
+          required
+        >
+        </textarea>
+        <div
+          class="invalid-feedback"
+        > Este campo es requerido.
+        </div>
+      </div>
+
+      <div
+        class="col-md-4 form-group"
+      >
+        <label
+          for="autor"
+        > Autor:
+        </label>
+
+        <select
+          class="form-control"
+          id="autor"
+          name="autor"
+          required
+          [(ngModel)]="nuevoLibro.autorEntity"
+        > <option
+            value=""
+            disabled
+            selected
+          > Selecciona un autor
+          </option>
+          <option
+            *ngFor="let autor of autores"
+            [ngValue]="autor"
+          > {{ autor.autor }}
+          </option>
+        </select>
+      </div>
+
+      <div
+        class="col-md-4 form-group"
+      > <label
+          for="categoria"
+        > Categoría:
+        </label>
+        <select
+          class="form-control"
+          id="categoria"
+          name="categoria"
+          required
+          [(ngModel)]="nuevoLibro.categoriaEntity"
+        >
+          <option
+            value=""
+            disabled
+            selected
+          > Selecciona una categoría
+          </option>
+          <option
+            *ngFor="let categoria of categorias"
+            [ngValue]="categoria"
+          > {{ categoria.categoria }}
+          </option>
+        </select>
+      </div>
+
+      <div
+        class="col-md-4 form-group"
+      > <label
+          for="editorial">Editorial:
+        </label>
+        <select
+          class="form-control"
+          id="editorial"
+          name="editorial"
+          required
+          [(ngModel)]="nuevoLibro.editorialEntity"
+        >
+          <option
+            value=""
+            disabled
+            selected
+          > Selecciona un editorial
+          </option>
+          <option
+            *ngFor="let editorial of editoriales"
+            [ngValue]="editorial"
+          > {{ editorial.editorial }}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label
+          for="validationCustom01"
+          class="form-label"
+        > Fecha de lanzamiento:
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          required
+          [(ngModel)]="nuevoLibro.fecha_lanzamiento"
+          name="fecha_lanzamiento"
+        >
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label
+        for="validationCustom01"
+        class="form-label"
+        > Paginas:
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          required
+          [(ngModel)]="nuevoLibro.paginas"
+          name="paginas"
+        >
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <label
+          for="validationCustom01"
+          class="form-label"
+        > Portada:
+        </label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          required
+          [(ngModel)]="nuevoLibro.portada"
+          name="portada"
+          >
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+    > Agregar Libro
+    </button>
+  </form>
+</div>

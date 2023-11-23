@@ -1,0 +1,66 @@
+<div class="container py-5 px-5">
+  <form (ngSubmit)="editarLibro() " class="row g-3 needs-validation" novalidate>
+    <div class="col-12">
+      <label for="validationCustom01" class="form-label"> ID del Libro:</label>
+      <input class="form-control" type="text" value="Disabled readonly input" aria-label="Disabled input example" disabled readonly [(ngModel)]="actualizarLibro.id" name="id">
+    </div>
+    <div class="col-12">
+      <label for="validationCustom01" class="form-label"> Título de libro:</label>
+      <input type="text" class="form-control" id="validationCustom01" [(ngModel)]="actualizarLibro.titulo" name="titulo">
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="descripcion" class="form-label"> Descripción:</label>
+      <textarea id="descripcion" class="form-control" [(ngModel)]="actualizarLibro.descripcion" name="descripcion" required></textarea>
+      <div class="invalid-feedback">Este campo es requerido.</div>
+    </div>
+
+    <div class="col-md-4 form-group">
+      <label for="autor">Autor:</label>
+      <select [(ngModel)]="actualizarLibro.autorEntity" class="form-select" aria-label="Default select example" id="autor" name="autor">
+        <option name="autor">{{actualizarLibro.autorEntity.autor}}</option>
+        <option *ngFor="let autor of autores" [ngValue]="autor">{{ autor.autor }}</option>
+      </select>
+      <!-- <p>Seleccionado: {{actualizarLibro.autorEntity.autor}}</p> -->
+    </div>
+
+    <div class="col-md-4 form-group">
+      <label for="categoria">Categoría:</label>
+      <select class="form-select" id="categoria" name="categoria" required [(ngModel)]="actualizarLibro.categoriaEntity">
+        <option value="s" disabled selected> Categoria actual: {{actualizarLibro.categoriaEntity.categoria}}</option>
+        <option *ngFor="let categoria of categorias" [ngValue]="categoria">{{ categoria.categoria }}</option>
+      </select>
+      <p>Seleccionado: {{actualizarLibro.categoriaEntity.categoria}}</p>
+    </div>
+
+    <div class="col-md-4 form-group">
+      <label for="editorial">Editorial:</label>
+      <select class="form-select" id="editorial" name="editorial" required [(ngModel)]="actualizarLibro.editorialEntity">
+        <option value="" selected disabled>Editorial actual: {{actualizarLibro.editorialEntity.editorial}}</option>
+        <option *ngFor="let editorial of editoriales" [ngValue]="editorial" selected>{{ editorial.editorial}}</option>
+      </select>
+      <p>Seleccionado: {{actualizarLibro.editorialEntity.editorial}}</p>
+    </div>
+
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label"> Fecha de lanzamiento:</label>
+      <input type="text" class="form-control" id="validationCustom01" required [(ngModel)]="actualizarLibro.fecha_lanzamiento" name="fecha_lanzamiento">
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label"> Paginas:</label>
+      <input type="text" class="form-control" id="validationCustom01" required [(ngModel)]="actualizarLibro.paginas" name="paginas">
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="validationCustom01" class="form-label"> Portada:</label>
+      <input type="text" class="form-control" id="validationCustom01" required [(ngModel)]="actualizarLibro.portada" name="portada">
+      <div class="valid-feedback">Looks good!</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Actualizar libro</button>
+  </form>
+</div>

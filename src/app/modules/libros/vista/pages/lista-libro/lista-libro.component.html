@@ -1,0 +1,48 @@
+<div class="table-responsive vh-100">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th scope="col" class="col">ID</th>
+        <th scope="col" class="col-3">Titulo</th>
+        <th scope="col" class="col">Fecha</th>
+        <th scope="col" class="col-sm-2">Autor</th>
+        <th scope="col" class="col-2">Categoría</th>
+        <th scope="col" class="col">Editorial</th>
+        <th scope="col" class="col">Idioma</th>
+        <th scope="col" class="col">Páginas</th>
+        <th scope="col" class="col"></th> <!-- Nueva columna para acciones -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let libro of libros">
+        <td>{{libro.id}}</td>
+        <td>{{libro.titulo}}</td>
+        <td>{{libro.fecha_lanzamiento}}</td>
+        <td>{{libro.autorEntity.autor}}</td>
+        <td>{{libro.categoriaEntity.categoria}}</td>
+        <td>{{libro.editorialEntity.editorial}}</td>
+        <td>{{libro.idioma}}</td>
+        <td>{{libro.paginas}}</td>
+        <td>
+          <div class="btn-group">
+            <button class="btn btn-sm dropdown-toggle border-0 bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false" >ㅤ</button>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" [routerLink]="['/home/libros/gestionar/editarLibro', libro.id]">
+                  Editar
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" (click)="eliminarLibro(libro.id)">Eliminar</a>
+              </li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item">Más Detalles</a>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
